@@ -1,4 +1,4 @@
-Capistrano::Configuration.instance.load do
+Capistrano::Configuration.instance(true).load do
   before "deploy:update_code", "sidekiq:quiet"
   after "deploy:stop",    "sidekiq:stop"
   after "deploy:start",   "sidekiq:start"
